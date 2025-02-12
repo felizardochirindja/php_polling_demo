@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Long Polling</title>
     <script>
+        let pollingTimeout;
+
         function checkStatusWithPolling() {
             fetch('./server.php?polling=1', {
                     method: 'GET',
@@ -15,7 +17,11 @@
                     document.getElementById("status").innerText = data.status;
 
                     if (data.status !== 'completa') {
-                        setTimeout(checkStatusWithPolling, 1000);
+                        if (pollingTimeout) {
+                            clearTimeout(pollingTimeout);
+                        }
+
+                        pollingTimeout = setTimeout(checkStatusWithPolling, 1000);
                     } else {
                         alert('A tarefa foi concluída!');
                     }
@@ -61,7 +67,7 @@
                 })
                 .then(response => response.json())
                 .then((response) => {
-                    console.log('tafera completa');
+                    console.log('tafera finalizada');
                 })
                 .catch(error => console.error('Erro ao atualizar status:', error));
         }

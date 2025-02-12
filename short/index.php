@@ -32,7 +32,7 @@
                 })
                 .then(response => response.json())
                 .then((response) => {
-                    console.log(response.message);
+                    console.log('tarefa iniciada');
 
                     clearInterval(pollingInterval);
                     pollingInterval = setInterval(checkStatus, 2000);
@@ -46,7 +46,7 @@
                 })
                 .then(response => response.json())
                 .then((response) => {
-                    console.log(response.message);
+                    console.log('tarefa finalizada');
                 })
                 .catch(error => console.error('Erro ao atualizar status:', error));
         }

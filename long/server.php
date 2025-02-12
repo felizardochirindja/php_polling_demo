@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $status = trim(file_get_contents($statusFile));
 
     if (isset($_GET['polling']) && $_GET['polling'] == '1') {
-        ignore_user_abort(false);
+        ignore_user_abort(true);
 
         $start_time = time();
         $timeout = 20;
