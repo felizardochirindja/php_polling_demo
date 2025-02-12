@@ -57,7 +57,7 @@
 
 <body>
     <h1>Status da Tarefa</h1>
-    <p>Status atual: <span id="status"></span></p>
+    <p>Status atual: <span id="status">loading...</span></p>
     <button onclick="initTask()">Iniciar Tarefa</button>
     <button onclick="completeTask()">Finalizar Tarefa</button>
 </body>

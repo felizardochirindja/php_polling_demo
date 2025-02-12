@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     fclose($file);
 
-    echo json_encode(["message" => 'tarefa finalizada']);
+    echo json_encode(["status" => 'completa']); 
     exit;
 }
 
@@ -37,6 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     }
     fclose($file);
 
-    echo json_encode(["message" => 'tarefa iniciada']);
+    echo json_encode(["status" => 'pendente']);
     exit;
 }
